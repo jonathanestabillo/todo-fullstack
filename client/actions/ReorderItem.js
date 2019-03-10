@@ -1,14 +1,14 @@
 import { REORDER_ITEM } from '../constants';
 
-export const ReorderItem = (initialPosition, newPosition) => {
+export const ReorderItem = (items) => {
   return (dispatch, getState) => {
-    const clone = getState().todos.items;
+    /*const clone = getState().todos.items;
     const removed = clone.splice(initialPosition, 1);
-    clone.splice(newPosition, 0, removed[0]);
+    clone.splice(newPosition, 0, removed[0]);*/
 
     dispatch({
       type: REORDER_ITEM,
-      payload: clone,
+      payload: items.data,
     });
   }
 }

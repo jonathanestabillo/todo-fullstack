@@ -15,9 +15,9 @@ const styles = StyleSheet.create({
 
 const Layout = props => (
   <View style={styles.container}>
-    <Header/>
-    <Content />
-    <Footer/>
+    <Header />
+    <Content {...props} />
+    <Footer />
   </View>
 );
 

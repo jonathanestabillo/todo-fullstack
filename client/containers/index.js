@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { default as AppLayout } from '../components/Layout';
+import AppLayout from '../components/Layout';
 import { AddItem } from '../actions/AddItem';
 import { CancelEditItem } from '../actions/CancelEditItem';
 import { DeleteItem } from '../actions/DeleteItem';

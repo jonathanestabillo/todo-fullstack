@@ -10,7 +10,8 @@ import {
 } from '../constants';
 
 const INITIAL_STATE = {
-  items: [],
+    items: [],
+    editingItem: {},
 };
 
 const TodosReducer = (state = INITIAL_STATE, action) => {

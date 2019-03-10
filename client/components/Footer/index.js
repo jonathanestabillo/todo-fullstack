@@ -3,7 +3,7 @@ import { StyleSheet, View, Text } from 'react-native';
 
 const styles = StyleSheet.create({
   footer_container: {
-    flex: 0.1,
+    flex: 0.07,
     justifyContent: 'center',
     alignItems: 'center',
     width: '100%',
