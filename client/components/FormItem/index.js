@@ -71,7 +71,7 @@ export default class FormItem extends Component {
           <CheckBox
             size={32}
             containerStyle={{ alignSelf: 'center', }}
-            onIconPress={() => (this.props.handleItemCompletion(this.props.item))}
+            onIconPress={() => (this.props.handleItemCompletion(this.props.item, this.props.gqlClient))}
             checked={this.props.item.completed} />
           <Text style={{ flex: 1, textAlignVertical: 'center', fontSize: 16,}} numberOfLines={1}>{this.props.item.label}</Text>
           <Button
@@ -82,7 +82,7 @@ export default class FormItem extends Component {
           <Button
             icon={btnTrash}
             buttonStyle={styles.fi_btn_2}
-            onPress={() => (this.props.handleDeleteItem(this.props.item.id))}
+            onPress={() => (this.props.handleDeleteItem(this.props.item.id, this.props.gqlClient))}
             containerStyle={{ alignSelf: 'center', }}
           />
         </View>

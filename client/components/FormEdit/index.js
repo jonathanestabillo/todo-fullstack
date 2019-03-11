@@ -60,7 +60,7 @@ export default class FormEdit extends Component {
     this.props.handleEditItem({
       ...this.props.item,
       value: this.state.itemValue,
-    });
+    }, this.props.gqlClient);
 
     // Reset value
     return this.setState({ itemValue: '' });

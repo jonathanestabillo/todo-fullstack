@@ -31,7 +31,7 @@ export default class Form extends Component {
   state = { itemValue: '' };
 
   handleSubmitAndResetForm = ev => {
-    this.props.handleAddItem(this.state.itemValue);
+    this.props.handleAddItem(this.state.itemValue, this.props.gqlClient);
 
     // Reset value
     return this.setState({

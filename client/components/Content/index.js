@@ -60,6 +60,7 @@ class Content extends Component {
           item={this.props.editingItem}
           handleEditItem={this.props.handleEditItem}
           handleCancelEditItem={this.props.handleCancelEditItem}
+          gqlClient={this.props.gqlClient}
         />
       );
     } else {
@@ -71,6 +72,7 @@ class Content extends Component {
           handleItemCompletion={this.props.handleItemCompletion}
           move={move}
           moveEnd={moveEnd}
+          gqlClient={this.props.gqlClient}
         />
       );
     }
@@ -91,7 +93,7 @@ class Content extends Component {
   render() {
     return (
       <View style={styles.content_container}>
-        <Form handleAddItem={this.props.handleAddItem} />
+        <Form handleAddItem={this.props.handleAddItem} gqlClient={this.props.gqlClient} />
         <DraggableFlatList
           data={this.state.data}
           renderItem={this.renderItem}

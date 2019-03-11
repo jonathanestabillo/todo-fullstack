@@ -1,6 +1,10 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+import ApolloClient from 'apollo-client';
+import { HttpLink } from 'apollo-link-http';
+import { InMemoryCache } from 'apollo-cache-inmemory';
+
 import AppLayout from '../components/Layout';
 import { AddItem } from '../actions/AddItem';
 import { CancelEditItem } from '../actions/CancelEditItem';
@@ -24,15 +28,20 @@ const appPropTypes = {
   handleReorderItem: PropTypes.func.isRequired,
 };
 
+const gqlClient = new ApolloClient({
+  link: new HttpLink({uri: 'http://192.168.1.5:4000/graphql'}),
+  cache: new InMemoryCache()
+});
+
 class AppContainer extends Component {
-  componentDidMount = () => this.props.handleLoadStateAsyncStorage();
+  componentDidMount = () => this.props.handleLoadStateAsyncStorage(gqlClient);
   componentDidUpdate = () => this.props.handleSaveStateAsyncStorage(this.props.items);
 
-  handleAddItem = itemValue => this.props.handleAddItem(itemValue);
+  handleAddItem = (itemValue, gqlClient) => this.props.handleAddItem(itemValue, gqlClient);
   handleCancelEditItem = () => this.props.handleCancelEditItem();
-  handleDeleteItem = selectedItemId => this.props.handleDeleteItem(selectedItemId);
-  handleEditItem = modifiedItem => this.props.handleEditItem(modifiedItem);
-  handleItemCompletion = modifiedItem => this.props.handleItemCompletion(modifiedItem);
+  handleDeleteItem = (selectedItemId, gqlClient) => this.props.handleDeleteItem(selectedItemId, gqlClient);
+  handleEditItem = (modifiedItem, gqlClient) => this.props.handleEditItem(modifiedItem, gqlClient);
+  handleItemCompletion = (modifiedItem, gqlClient) => this.props.handleItemCompletion(modifiedItem, gqlClient);
   handleSelectEditItem = id => this.props.handleSelectEditItem(id);
   handleReorderItem = (initialPosition, newPosition) =>
     this.props.handleReorderItem(initialPosition, newPosition);
@@ -45,6 +54,7 @@ class AppContainer extends Component {
 const mapStateToProps = state => ({
   items: state.todos.items,
   editingItem: state.todos.editingItem,
+  gqlClient: gqlClient,
 });
 
 const mapDispatchToProps = {
