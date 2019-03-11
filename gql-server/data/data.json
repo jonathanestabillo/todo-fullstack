@@ -1,0 +1,19 @@
+{
+  "items": [
+    {
+      "id": "1",
+      "value": "Item 1",
+      "completed": true
+    },
+    {
+      "id": "2",
+      "value": "Item 2",
+      "completed": false
+    },
+    {
+      "id": "3",
+      "value": "Item 3",
+      "completed": true
+    }
+  ]
+}

@@ -1,0 +1,26 @@
+{
+  "name": "gql-server",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node src/index.js",
+    "dev:server": "nodemon node src/index.js",
+    "json:server": "json-server --watch ./data/data.json"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "apollo-server-express": "^2.4.8",
+    "axios": "^0.18.0",
+    "body-parser": "^1.18.3",
+    "express": "^4.16.4",
+    "graphql": "^14.1.1",
+    "graphql-tools": "^4.0.4",
+    "json-server": "^0.14.2"
+  },
+  "devDependencies": {
+    "nodemon": "^1.18.10"
+  }
+}
